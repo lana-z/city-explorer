@@ -1,24 +1,27 @@
 import { useState } from 'react'
-
 import axios from 'axios';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from "./components/Header.jsx";
 import CityForm from "./components/CityForm.jsx";
 import Map from './components/Map.jsx';
 
-let API_KEY = import.meta.env.VITE_MAP_API_KEY
-console.log(API_KEY)
+let API_KEY = import.meta.env.VITE_API_KEY;
+console.log(API_KEY);
 
 function App() {
 
   const [city, setCity] = useState('');
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
+  const [buttonClicked, setButtonClicked] = useState(false);
 
   function changeCity(newCity) {
 
     // get the location data
     getLocation(newCity);
+
+    // set the buttonClicked to true
+    setButtonClicked(true);
 
     // print a map
     console.log("Changing to", newCity);
@@ -40,18 +43,27 @@ function App() {
       setLongitude(response.data[0].lon);
 
     } catch(error) {
-      console.error(error.message)
+      console.error(error.message);
       setErrorMessage(true);
     }
 
   }
 
   return (
-    <>
+    <div className="app-container">
       <Header />
+      <div className='form-container'>
       <CityForm city={city} handleChangeCity={changeCity} />
       <Map latitude={latitude} longitude={longitude} />
-    </>
+      
+      {buttonClicked && (
+        <div>
+          <p>Latitude: {latitude}</p>
+          <p>Longitude: {longitude}</p>
+        </div>
+      )}
+      </div>
+    </div>
   )
 }
 

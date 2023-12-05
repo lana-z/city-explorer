@@ -1,7 +1,7 @@
 import {If,Then,Else,When} from 'react-if';
 
 // Read in from .env.local file and live, it comes from "Environment Variables"
-const API_KEY = import.meta.env.VITE_MAP_API_KEY;
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 function Map(props) {
 

@@ -6,6 +6,8 @@
 ## Overview
 This is a location based app. A user inputs a location, and the app displays a map of that location. 
 
+Note: create an .env.local file with your value for the variable `VITE_API_KEY=` to view.
+
 ## Getting Started
 
 
@@ -30,6 +32,6 @@ Estimate of time needed to complete: 8 hours
 
 Start time: 1pm PST
 
-Finish time: 
+Finish time: 10:30pm PST
 
-Actual time needed to complete: 
+Actual time needed to complete: 8 hours including breaks
