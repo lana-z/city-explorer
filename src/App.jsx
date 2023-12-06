@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from "./components/Header.jsx";
@@ -7,6 +7,7 @@ import Map from './components/Map.jsx';
 
 let API_KEY = import.meta.env.VITE_API_KEY;
 console.log(API_KEY);
+
 
 function App() {
 
