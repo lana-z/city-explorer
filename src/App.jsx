@@ -62,7 +62,7 @@ function App() {
 
   async function fetchWeatherData(city, latitude, longitude) {
 
-    let weatherUrl = `http://api.weatherbit.io/v2.0/forecast/daily?key=${{WEATHER_API_KEY}&`
+    let weatherUrl = `http://api.weatherbit.io/v2.0/forecast/daily?key=${WEATHER_API_KEY}&`
     try {
       const response = await axios.get(`${local_API}/weather?searchQuery=${city}&lat=${latitude}&lon=${longitude}`);
       console.log("Weather Response", response);
