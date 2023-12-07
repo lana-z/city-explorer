@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from "./components/Header.jsx";
@@ -9,7 +9,7 @@ import Weather from './components/Weather.jsx';
 
 let VITE_API_KEY = import.meta.env.VITE_API_KEY;
 let local_API = "http://localhost:3000"
-let WEATHER_API_KEY = import.meta.env.WEATHER_API_KEY;
+//let WEATHER_API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 console.log(local_API)
 console.log(VITE_API_KEY);
 
@@ -62,7 +62,7 @@ function App() {
 
   async function fetchWeatherData(city, latitude, longitude) {
 
-    let weatherUrl = `http://api.weatherbit.io/v2.0/forecast/daily?key=${{WEATHER_API_KEY}&`
+    //let weatherUrl = `http://api.weatherbit.io/v2.0/forecast/daily?key=${VITE_WEATHER_API_KEY}&`
     try {
       const response = await axios.get(`${local_API}/weather?searchQuery=${city}&lat=${latitude}&lon=${longitude}`);
       console.log("Weather Response", response);
