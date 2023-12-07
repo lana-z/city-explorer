@@ -23,11 +23,11 @@ function App() {
   const [forecast, setForecast] = useState(null);
 
 
-  function changeCity(newCity) {
+  async function changeCity(newCity) {
 
-    getLocation(newCity);
+    await getLocation(newCity);
     
-    fetchWeatherData(newCity, latitude, longitude);
+    await fetchWeatherData(newCity, latitude, longitude);
 
     setButtonClicked(true);
 
@@ -48,9 +48,13 @@ function App() {
       setLatitude(response.data[0].lat);
       setLongitude(response.data[0].lon);
 
+
+    // Clear the error message if it was previously set
+    setErrorMessage('');
+
     } catch(error) {
       console.error(error.message);
-      setErrorMessage(true);
+      setErrorMessage('There was an error getting the location information.');
     }
 
   }
@@ -61,7 +65,8 @@ function App() {
       console.log("Weather Response", response);
       setForecast(response.data);
     } catch (error) {
-      console.error('Error fetching weather data:', error);
+      console.error('There was an error fetching the weather data:', error);
+      setErrorMessage('There was an error fetching the weather data.');
     }
   }
 
