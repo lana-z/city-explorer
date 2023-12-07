@@ -48,9 +48,13 @@ function App() {
       setLatitude(response.data[0].lat);
       setLongitude(response.data[0].lon);
 
+
+    // Clear the error message if it was previously set
+    setErrorMessage('');
+
     } catch(error) {
       console.error(error.message);
-      setErrorMessage(true);
+      setErrorMessage('There was an error getting the location information.');
     }
 
   }
