@@ -5,17 +5,11 @@ const Weather = (props) => {
   return (
 
     <div className="weather-container">
-      {props.forecast && (
+        <h4></h4>
         <div>
-          <h4>Here's what you can expect the weather in {props.city} to be like.</h4>
-          {props.forecast.data.map((day, index) => (
-            <div key={index} className="weather-day">
-              <p>Date: {day.datetime}</p>
-              <p>Temp: {day.temp}</p>
-            </div>
-          ))}
+            <p>Date: {props.forecast.date}</p>
+            <p>Weather: {props.forecast.description}</p>
         </div>
-      )}
     </div>
   );
 };
