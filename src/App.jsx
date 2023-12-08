@@ -26,9 +26,7 @@ function App() {
 
   async function changeCity(newCity) {
 
-    getLocation(newCity);
-    
-    await fetchWeatherData(newCity, latitude, longitude);
+    await getLocation(newCity);
 
     setButtonClicked(true);
 
@@ -45,10 +43,11 @@ function App() {
       // 2. Put the city into state
       setCity(response.data[0].display_name)
 
-      // 3. Put the lat/lon into state
+      // 3. Put the lat/lon into state - these are async
       setLatitude(response.data[0].lat);
       setLongitude(response.data[0].lon);
 
+      await fetchWeatherData(cityName, response.data[0].lat, response.data[0].lon);
 
     // Clear the error message if it was previously set
     setErrorMessage('');
