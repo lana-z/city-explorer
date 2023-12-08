@@ -9,7 +9,7 @@ import Weather from './components/Weather.jsx';
 
 let VITE_API_KEY = import.meta.env.VITE_API_KEY;
 let local_API = "http://localhost:3000"
-//let WEATHER_API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
+// let WEATHER_API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 console.log(local_API)
 console.log(VITE_API_KEY);
 
@@ -26,7 +26,7 @@ function App() {
 
   async function changeCity(newCity) {
 
-    await getLocation(newCity);
+    getLocation(newCity);
     
     await fetchWeatherData(newCity, latitude, longitude);
 
@@ -62,11 +62,11 @@ function App() {
 
   async function fetchWeatherData(city, latitude, longitude) {
 
-    //let weatherUrl = `http://api.weatherbit.io/v2.0/forecast/daily?key=${VITE_WEATHER_API_KEY}&`
     try {
       const response = await axios.get(`${local_API}/weather?searchQuery=${city}&lat=${latitude}&lon=${longitude}`);
       console.log("Weather Response", response);
       setForecast(response.data);
+
     } catch (error) {
       console.error('There was an error fetching the weather data:', error);
       setErrorMessage('There was an error fetching the weather data.');
@@ -94,9 +94,10 @@ function App() {
         </div>
 
       )}
+      <div className="weather-container">
 
-      {forecast && <Weather forecast={forecast} city={city} />}
-      
+      {forecast ? forecast.map((day, idx) => <Weather key={idx} forecast={day} />): null}
+      </div>
       </div>
     </div>
   )
