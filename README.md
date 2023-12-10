@@ -22,7 +22,7 @@ The app utilizes React, Axios and LocationIQ.
 ## Credit and Collaborations
 I collaborated with Stephanie and Latherio. 
 Brandon and ChatGPT assisted us. 
-React, Axios and LocationIQ are utilized. 
+LocationIQ and Weatherbit API are utilized. 
 
 
 
