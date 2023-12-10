@@ -20,13 +20,13 @@ The app utilizes React, Axios and LocationIQ.
 01-01-2001 4:59pm - Application has a fully-functional express server, with a GET route for the location resource.
 
 ## Credit and Collaborations
-I collaborated with Stephanie and Latherio. 
-Brandon and ChatGPT assisted us. 
+I collaborated with and was assisted by Stephanie, Latherio, Ekow, Code Fellows TAs, John and ChatGPT. :raised_hands:
 LocationIQ and Weatherbit API are utilized. 
+For the weatherbit API, I referenced Chris' code. 
 
 
-
-Name of feature: 
+#### Notes
+Name of feature: Set up Server
 
 Estimate of time needed to complete: 8 hours
 
@@ -35,3 +35,14 @@ Start time: 1pm PST
 Finish time: 10:30pm PST
 
 Actual time needed to complete: 8 hours including breaks
+
+
+Name of feature: weatherbit API
+
+Estimate of time needed to complete: 2 hours
+
+Start time: 11am PST
+
+Finish time: 8pm PST
+
+Actual time needed to complete: 6 hrs
