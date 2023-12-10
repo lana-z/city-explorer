@@ -36,7 +36,7 @@ function App() {
   // Use locationIQ API to get the lat/lon
   async function getLocation(cityName){
 
-    // 1. Call the API on asynchronously
+    // 1. Call the API asynchronously
     let url = `https://us1.locationiq.com/v1/search?key=${VITE_API_KEY}&q=${cityName}&format=json`;
     try {
       let response = await axios.get(url);
@@ -64,7 +64,9 @@ function App() {
     try {
       const response = await axios.get(`${local_API}/weather?searchQuery=${city}&lat=${latitude}&lon=${longitude}`);
       console.log("Weather Response", response);
-      setForecast(response.data);
+      
+      let threeDayForecast = response.data.slice(0,3);
+      setForecast(threeDayForecast);
 
     } catch (error) {
       console.error('There was an error fetching the weather data:', error);
